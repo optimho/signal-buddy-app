@@ -48,3 +48,4 @@ footer { border-top: 1px solid var(--line); margin-top: 40px; padding: 20px 0 32
   .hero h1 { font-size: 30px; }
   .hero p.lead { font-size: 18px; }
 }
+.nw { white-space: nowrap; }
