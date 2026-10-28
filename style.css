@@ -1,0 +1,50 @@
+:root {
+  --bg: #f6faf9; --surface: #ffffff; --text: #17201f; --muted: #4b5a58;
+  --brand: #087f72; --line: #d6e3e0;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1615; --surface: #172120; --text: #e6efed; --muted: #a8b8b5;
+    --brand: #4fd1c0; --line: #2a3735;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 17px/1.6 "Segoe UI", Roboto, -apple-system, Arial, sans-serif;
+}
+a { color: var(--brand); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header.site {
+  background: linear-gradient(135deg, #0fa08f 0%, #087f72 55%, #055c53 100%);
+  color: #fff; padding: 18px 0;
+}
+header.site .wrap { display: flex; align-items: center; gap: 14px; }
+header.site img { width: 44px; height: 44px; border-radius: 11px; }
+header.site a { color: #fff; text-decoration: none; font-weight: 700; font-size: 22px; }
+header.site nav { margin-left: auto; }
+header.site nav a { font-size: 16px; font-weight: 600; opacity: .92; }
+.hero { padding: 36px 0 8px; }
+.hero h1 { font-size: 38px; line-height: 1.15; margin: 0 0 12px; }
+.hero p.lead { font-size: 20px; color: var(--muted); margin: 0; }
+.banner { width: 100%; height: auto; border-radius: 14px; margin: 24px 0 8px; display: block; }
+.note {
+  background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--brand);
+  border-radius: 8px; padding: 12px 16px; margin: 20px 0;
+}
+section { margin: 28px 0; }
+h2 { font-size: 24px; margin: 0 0 8px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+.card h3 { margin: 0 0 6px; font-size: 18px; color: var(--brand); }
+.card ul { margin: 0; padding-left: 18px; }
+footer { border-top: 1px solid var(--line); margin-top: 40px; padding: 20px 0 32px; color: var(--muted); font-size: 15px; }
+.policy h1 { font-size: 34px; line-height: 1.2; margin: 32px 0 4px; }
+.policy .date { color: var(--muted); margin: 0 0 20px; }
+.policy h2 { margin-top: 28px; }
+@media (max-width: 480px) {
+  .hero h1 { font-size: 30px; }
+  .hero p.lead { font-size: 18px; }
+}
