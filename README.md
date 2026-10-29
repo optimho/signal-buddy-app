@@ -9,3 +9,11 @@ Plain static HTML and CSS, with no build step. `.nojekyll` stops GitHub running 
 
 The app's source is in a separate private repository. Keep the privacy policy here
 (`privacy/index.html`) the same as the one there (`docs/store/privacy-policy.md`).
+
+## Signal Buddy project
+
+This repo is part of the Signal Buddy project:
+
+- [signal-buddy](https://github.com/optimho/signal-buddy): Android app (Kotlin + Jetpack Compose) to control and monitor the injector over Bluetooth LE
+- [signal-buddy-app](https://github.com/optimho/signal-buddy-app): website and privacy policy for the Android app
+- [4-20mA-injector](https://github.com/optimho/4-20mA-injector): Raspberry Pi Pico (FreeRTOS) firmware that injects 4-20mA, controlled over Bluetooth
