@@ -25,6 +25,7 @@ header.site .wrap { display: flex; align-items: center; gap: 14px; }
 header.site img { width: 44px; height: 44px; border-radius: 11px; }
 header.site a { color: #fff; text-decoration: none; font-weight: 700; font-size: 22px; }
 header.site nav { margin-left: auto; }
+header.site nav { display: flex; gap: 18px; }
 header.site nav a { font-size: 16px; font-weight: 600; opacity: .92; }
 .hero { padding: 36px 0 8px; }
 .hero h1 { font-size: 38px; line-height: 1.15; margin: 0 0 12px; }
@@ -49,3 +50,10 @@ footer { border-top: 1px solid var(--line); margin-top: 40px; padding: 20px 0 32
   .hero p.lead { font-size: 18px; }
 }
 .nw { white-space: nowrap; }
+.button {
+  display: inline-block; background: var(--brand); color: #fff; text-decoration: none;
+  font-weight: 600; padding: 12px 22px; border-radius: 999px;
+}
+@media (prefers-color-scheme: dark) { .button { color: #062b27; } }
+.small { font-size: 15px; color: var(--muted); }
+code { font-size: 14px; overflow-wrap: anywhere; }
