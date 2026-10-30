@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Web Bluetooth check</title>
+    <style>body { font: 14px system-ui, sans-serif; margin: 24px; } pre { background: #eee; padding: 12px; }</style>
+  </head>
+  <body>
+    <h1>Web Bluetooth check</h1>
+    <p>Connects to the 4-20mA Injector, reads Output and writes a 4 mA setpoint (which needs PIN pairing).</p>
+    <button id="go">Connect and test</button>
+    <pre id="log"></pre>
+    <script>
+      const SERVICE = 'e5f80001-24b7-492c-a508-616e524c14ab';
+      const log = (text) => { document.getElementById('log').textContent += text + '\n'; };
+      log('navigator.bluetooth: ' + (navigator.bluetooth ? 'available' : 'MISSING'));
+      log('secure context: ' + window.isSecureContext);
+      log('browser: ' + navigator.userAgent);
+      document.getElementById('go').onclick = async () => {
+        try {
+          const device = await navigator.bluetooth.requestDevice({ filters: [{ services: [SERVICE] }] });
+          log('picked: ' + device.name);
+          const server = await device.gatt.connect();
+          log('connected');
+          const service = await server.getPrimaryService(SERVICE);
+          const output = await service.getCharacteristic('e5f80003-24b7-492c-a508-616e524c14ab');
+          log('Output: ' + new TextDecoder().decode(await output.readValue()));
+          const setpoint = await service.getCharacteristic('e5f80002-24b7-492c-a508-616e524c14ab');
+          await setpoint.writeValueWithResponse(new TextEncoder().encode('4'));
+          log('Setpoint 4 mA written: pairing works');
+          device.gatt.disconnect();
+          log('disconnected');
+        } catch (e) {
+          log('ERROR ' + e.name + ': ' + e.message);
+        }
+      };
+    </script>
+  </body>
+</html>
