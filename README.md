@@ -1,6 +1,6 @@
 # Signal Buddy website
 
-Public website for the Signal Buddy Android app, served by GitHub Pages at
+Public website for the Signal Buddy Android app (published on Google Play as **Valve timing tester**), served by GitHub Pages at
 https://optimho.github.io/signal-buddy-app/. The privacy policy at
 https://optimho.github.io/signal-buddy-app/privacy/ is the one used for the Google Play
 listing.
